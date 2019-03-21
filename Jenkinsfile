@@ -30,7 +30,7 @@ volumes: [
                     sh '''
                       npm install --verbose -d 
                       npm install --save classlist.js
-                    ''''
+                    '''
                 }
                 
                 stage('Unit Test and coverage project') {
