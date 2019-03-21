@@ -26,12 +26,8 @@ volumes: [
                     sh 'echo  "validate"'
                 }
                 
-                stage('Gather modules') {
-                    sh '''
-                      npm install --verbose -d 
-                      npm install --save classlist.js
-                      yarn install
-                    '''
+                stage('Load modules') {
+                    sh 'yarn install'
                 }
                 
                 stage('Test') {
