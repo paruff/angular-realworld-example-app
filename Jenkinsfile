@@ -26,14 +26,14 @@ volumes: [
                     sh 'echo  "validate"'
                 }
                 
-                stage('Compile project') {
+                stage('Gather modules') {
                     sh '''
                       npm install --verbose -d 
                       npm install --save classlist.js
                     '''
                 }
                 
-                stage('Unit Test and coverage project') {
+                stage('Test') {
                     sh '''
                       $(npm bin)/ng test --browsers Chrome_no_sandbox
                     '''
