@@ -35,7 +35,7 @@ volumes: [
                 
                 stage('Unit Test and coverage project') {
                     sh '''
-                      $(npm bin)/ng test --single-run --browsers Chrome_no_sandbox
+                      $(npm bin)/ng test --browsers Chrome_no_sandbox
                     '''
                   junit "test-results.xml"
                 }
