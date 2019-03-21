@@ -32,7 +32,8 @@ volumes: [
                 
                 stage('Test') {
                     sh '''
-                      $(npm bin)/ng test --progress=false --watch false
+                      echo "$(npm bin)/ng test --progress=false --watch false"
+                      echo "test me"
                     '''
                   junit "test-results.xml"
                 }
