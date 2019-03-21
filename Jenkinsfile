@@ -35,7 +35,7 @@ volumes: [
                       echo "$(npm bin)/ng test --progress=false --watch false"
                       echo "test me"
                     '''
-                  junit "test-results.xml"
+                  //junit "test-results.xml"
                 }
                 
 // TODO
