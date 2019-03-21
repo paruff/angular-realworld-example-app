@@ -30,12 +30,13 @@ volumes: [
                     sh '''
                       npm install --verbose -d 
                       npm install --save classlist.js
+                      yarn install
                     '''
                 }
                 
                 stage('Test') {
                     sh '''
-                      $(npm bin)/ng test --browsers Chrome_no_sandbox
+                      $(npm bin)/ng test --progress=false --watch false
                     '''
                   junit "test-results.xml"
                 }
