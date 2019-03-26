@@ -47,7 +47,16 @@ volumes: [
                 stage 'Package and Code Analysis'
                     withSonarQubeEnv {
                         sh '$(npm bin)/ng lint'
+                        sh 'sonar-scanner  -Dsonar.projectKey=angular-conduit-ui -Dsonar.sources=.' 
                     }
+
+                    stage('SonarQube analysis') {
+    // requires SonarQube Scanner 2.8+
+    def scannerHome = tool 'SonarQubeScanner';
+    withSonarQubeEnv('My SonarQube Server') {
+      sh "${scannerHome}/bin/sonar-scanner"
+    }
+  }
                 
                 stage('Build') {
                     sh '$(npm bin)/ng build --prod --build-optimizer'
